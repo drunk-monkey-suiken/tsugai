@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/icon.png" width="128" alt="Tsugai アイコン">
+</p>
+
 # Tsugai
 
 Tsugai（番）は、キーボード操作を中心にした2画面ファイラーです。
