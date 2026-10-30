@@ -11,12 +11,12 @@ Tsugai（番）は、キーボード操作を中心にした2画面ファイラ�
 
 最新版は GitHub の [Releases](https://github.com/drunk-monkey-suiken/tsugai/releases) からダウンロードしてください。
 
-環境に合わせて以下を選びます。
+最新版は **v0.9.2** です。環境に合わせて以下を選びます。
 
-- Windows: `Tsugai-vX.Y.Z-win-x64.zip`
-- macOS: `Tsugai-vX.Y.Z-macOS-universal.zip`
+- [Windows x64 版をダウンロード](https://github.com/drunk-monkey-suiken/tsugai/releases/download/v0.9.2/Tsugai-v0.9.2-win-x64.zip)
+- [macOS Universal 版をダウンロード](https://github.com/drunk-monkey-suiken/tsugai/releases/download/v0.9.2/Tsugai-v0.9.2-macOS-universal.zip)
 
-ZIP を展開して実行してください。
+ZIP を展開して実行してください。[変更点・SHA-256](https://github.com/drunk-monkey-suiken/tsugai/releases/tag/v0.9.2) はリリースページで確認できます。
 
 ## 動作環境
 
@@ -26,6 +26,8 @@ ZIP を展開して実行してください。
 - Windows 10 はサポート中の Enterprise・LTSC・IoT 系を対象
 - 配布形式: 自己完結 exe
 - .NET ランタイムの別途インストールは不要です
+
+ダウンロードした ZIP をフォルダへ展開し、`Tsugai.exe` を実行してください。インストーラーは不要です。更新時は Tsugai を終了してから新しい exe に置き換えます。ユーザー設定は `%APPDATA%\Tsugai\` に保存されます。
 
 初回起動時に Windows SmartScreen の確認が出る場合があります。現在の配布物はコード署名していないためです。信頼できる配布元から取得したことを確認してから実行してください。
 
@@ -59,7 +61,7 @@ unzip Tsugai-vX.Y.Z-macOS-universal.zip
 - **2画面コピー / 移動**: 反対ペインをコピー先・移動先として使います。
 - **マーク操作**: `Space` で複数選択し、まとめてコピー・移動・削除・圧縮できます。
 - **同名衝突処理**: コピー / 移動先に同名がある場合、上書き、末尾 `_` 付与、名前変更、キャンセルを選べます。
-- **連番リネーム**: Windows / macOS ともに、複数マークして `R` を押すと、ベース名・開始番号・桁数・拡張子を指定して一括変更できます。
+- **一括リネーム**: Windows / macOS ともに、複数マークして `R` を押し、「連番」または「文字列の検索・置換」で一括変更できます。変更前後の名前をプレビューできます。
 - **履歴ジャンプ**: Windows / macOS ともに、`H` で訪問済みフォルダの一覧を開き、過去の場所へ移動できます。
 - **インクリメンタルサーチ**: `F` で一覧を絞り込まず、先頭一致する項目へカーソルを移動します。
 - **中身検索（grep）**: `G` でフォルダ以下を再帰検索し、結果から該当ファイルや該当行へ移動できます。
@@ -88,7 +90,7 @@ unzip Tsugai-vX.Y.Z-macOS-universal.zip
 | `Space` | マーク切替 | マーク切替 |
 | `A` | 選択を反転 | 選択を反転 |
 | `C` / `M` | コピー / 移動 | コピー / 移動 |
-| `R` | 名前変更（複数マーク時は連番リネーム） | 名前変更（複数マーク時は連番リネーム） |
+| `R` | 名前変更（複数マーク時は一括リネーム） | 名前変更（複数マーク時は一括リネーム） |
 | `K` / `N` | 新規フォルダ / 新規ファイル | 新規フォルダ / 新規ファイル |
 | `Delete` / `⌘` + `delete` | 削除（Windows は `Shift+Delete` で完全削除） | ゴミ箱へ移動 |
 | `P` / `U` | 圧縮 / 展開 | 圧縮 / 展開 |
@@ -127,7 +129,7 @@ Windows 版、macOS 版ともに、設定で ripgrep などの外部検索ツー
 - macOS: zip / tar / tar.gz / tgz / tar.bz2 を扱えます。
 - Windows: zip は内蔵で扱えます。7-Zip がある場合は 7z / rar / lzh / cab / iso / arj / tar.gz も扱えます。
 - 書庫内は読み取り専用です。コピー操作は「取り出しコピー」として動きます。
-- パスワード付き zip は閲覧・展開・取り出しに対応します。作成は対象外です。
+- パスワード付き zip は閲覧・展開・取り出しに対応します。Windows では別途 7-Zip が必要です。パスワード付き書庫の作成は対象外です。
 
 ## 設定ファイル
 
@@ -145,3 +147,5 @@ macOS:   ~/Library/Application Support/Tsugai/
 Copyright (c) 2026 drunk-monkey-suiken.
 
 本ソフトウェアの無断転載、再配布、改変、リバースエンジニアリングを禁止します。
+
+同梱する第三者コンポーネントにはそれぞれのライセンスが適用されます。Windows版ZIPの `licenses` を参照してください。
