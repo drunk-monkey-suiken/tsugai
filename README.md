@@ -11,12 +11,12 @@ Tsugai（番）は、キーボード操作を中心にした2画面ファイラ�
 
 最新版は GitHub の [Releases](https://github.com/drunk-monkey-suiken/tsugai/releases) からダウンロードしてください。
 
-最新版は **v0.9.2** です。環境に合わせて以下を選びます。
+最新版は **v0.9.3** です。環境に合わせて以下を選びます。
 
-- [Windows x64 版をダウンロード](https://github.com/drunk-monkey-suiken/tsugai/releases/download/v0.9.2/Tsugai-v0.9.2-win-x64.zip)
-- [macOS Universal 版をダウンロード](https://github.com/drunk-monkey-suiken/tsugai/releases/download/v0.9.2/Tsugai-v0.9.2-macOS-universal.zip)
+- [Windows x64 版をダウンロード](https://github.com/drunk-monkey-suiken/tsugai/releases/download/v0.9.3/Tsugai-v0.9.3-win-x64.zip)
+- [macOS Universal 版をダウンロード](https://github.com/drunk-monkey-suiken/tsugai/releases/download/v0.9.3/Tsugai-v0.9.3-macOS-universal.zip)
 
-ZIP を展開して実行してください。[変更点・SHA-256](https://github.com/drunk-monkey-suiken/tsugai/releases/tag/v0.9.2) はリリースページで確認できます。
+ZIP を展開して実行してください。[変更点・SHA-256](https://github.com/drunk-monkey-suiken/tsugai/releases/tag/v0.9.3) はリリースページで確認できます。
 
 ## 動作環境
 
@@ -64,8 +64,8 @@ unzip Tsugai-vX.Y.Z-macOS-universal.zip
 - **一括リネーム**: Windows / macOS ともに、複数マークして `R` を押し、「連番」または「文字列の検索・置換」で一括変更できます。変更前後の名前をプレビューできます。
 - **履歴ジャンプ**: Windows / macOS ともに、`H` で訪問済みフォルダの一覧を開き、過去の場所へ移動できます。
 - **インクリメンタルサーチ**: `F` で一覧を絞り込まず、先頭一致する項目へカーソルを移動します。
-- **中身検索（grep）**: `G` でフォルダ以下を再帰検索し、結果から該当ファイルや該当行へ移動できます。
-- **画像プレビュー**: 画像ファイルは反対ペインにプレビュー表示できます。
+- **検索（grep）**: `G` で内容またはファイル名を再帰検索し、結果から該当ファイルの場所や該当行へ移動できます。ファイル名は大小文字を区別しない部分一致で検索します。
+- **画像プレビュー**: 画像ファイルは背景で読み込み、反対ペインに表示します。連続選択や解除の後に古い読み込み結果を表示しません。
 - **書庫の閲覧 / 展開 / 圧縮**: 書庫を解凍せずに中へ入れます。書庫内は読み取り専用です。
 - **パスワード付き zip**: 閲覧、展開、取り出しに対応します。パスワードは保存しません。
 - **パスコピー**: ファイル名、フルパス、フォルダパスを選んでコピーできます。
@@ -105,7 +105,7 @@ unzip Tsugai-vX.Y.Z-macOS-universal.zip
 | `.` | 隠しファイル表示切替 | 隠しファイル表示切替 |
 | `S` | 並べ替え | 並べ替え |
 | `F` | インクリメンタルサーチ | インクリメンタルサーチ |
-| `G` | 中身検索（grep） | 中身検索（grep） |
+| `G` | 内容・ファイル名検索（grep） | 内容・ファイル名検索（grep） |
 | `D` | 左右を比較 | 左右を比較 |
 | `O` | 反対ペインを同期 | 反対ペインを同期 |
 | `Z` | 設定 | 設定 |
@@ -113,7 +113,7 @@ unzip Tsugai-vX.Y.Z-macOS-universal.zip
 
 英字キーや F1〜F12 の割り当ては設定画面で変更できます。矢印、Tab、Enter、Space、Esc、Home/End、Backspace などのナビゲーションキーは固定です。
 
-## 中身検索（grep）
+## 内容・ファイル名検索（grep）
 
 `G` でフォルダ以下を再帰検索できます。
 
@@ -122,7 +122,9 @@ unzip Tsugai-vX.Y.Z-macOS-universal.zip
 - `Space` で行表示 / ファイル表示を切替
 - `Esc` で検索結果を閉じる
 
-Windows 版、macOS 版ともに、設定で ripgrep などの外部検索ツールを指定できます。未設定時は内蔵スキャナを使います。
+「ファイル名を検索」をオンにすると、ファイル名（拡張子を含む）の部分一致で検索します。大小文字を区別せず、ワイルドカードや正規表現は使いません。空ファイルやバイナリも対象で、フォルダ名や親フォルダのパスは照合しません。結果は最大5,000ファイルで打ち切ります。ファイル名検索の結果はファイル単位固定で、Spaceによる表示切替はありません。
+
+内容検索では、Windows版・macOS版ともに設定でripgrepなどの外部検索ツールを指定できます。未設定時は内蔵スキャナを使います。ファイル名検索は外部ツールの設定に関係なく内蔵処理を使います。
 
 ## 書庫
 
